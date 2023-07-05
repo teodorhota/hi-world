@@ -1,0 +1,36 @@
+class Repository:
+    def init(self, name):
+        self.name = name
+        self.files = []
+
+    def add_file(self, file):
+        self.files.append(file)
+
+    def remove_file(self, file):
+        if file in self.files:
+            self.files.remove(file)
+
+    def list_files(self):
+        if self.files:
+            print(f"Files in repository '{self.name}':")
+            for file in self.files:
+                print(file)
+        else:
+            print(f"No files in repository '{self.name}'.")
+
+# Create a repository instance
+repo = Repository("MyRepo")
+
+# Add files to the repository
+repo.add_file("file1.txt")
+repo.add_file("file2.py")
+repo.add_file("file3.md")
+
+# List all files in the repository
+repo.list_files()
+
+# Remove a file from the repository
+repo.remove_file("file2.py")
+
+# List files again to verify removal
+repo.list_files()
